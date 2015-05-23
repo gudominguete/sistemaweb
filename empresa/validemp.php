@@ -24,6 +24,7 @@
 		echo "Login efetuado com sucesso!";
 		setcookie("emplogado", true, time()+3600*24);
 		setcookie("emplogin",$row['Login']);
+		setcookie("empcnpj", $row['CNPJ']);
 		header("Location: painelemp.php");
 	}
 	else

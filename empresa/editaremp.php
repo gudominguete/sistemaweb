@@ -2,7 +2,11 @@
 <?php
     $nome = $_COOKIE['empnome'];
 	$tel1 = $_COOKIE['emptel1'];
-	$tel2 = $_COOKIE['emptel2'];
+	if(isset($_COOKIE['emptel2']))
+	{
+	    $tel2 = $_COOKIE['emptel2'];
+	}
+	else $tel2 = "";
 	$cidade = $_COOKIE['empcity'];
 	$end = $_COOKIE['empend'];
 	$bairro = $_COOKIE['empbairro'];

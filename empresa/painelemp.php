@@ -9,9 +9,9 @@
 <link rel=”stylesheet” type=”text/css” href='empresa.css' />
 </head>
 <body>
-    <a href="verificarcompratickets.php"> Verificar compras tickets</a><br>
+    <a href="#"> Verificar compras pontos</a><br>
     <a href="criarnovapromocao.php">Criar nova promoção</a><br>
-    <a href="comprarnovostickets.php">Comprar tickets</a><br>
+    <a href="#">Comprar pontos</a><br>
     <a href="editaremp.php">Editar perfil</a><br>
     <a href="logoutemp.php">Logout </a><br>
 <?php
@@ -68,8 +68,8 @@
 	    	$result = mysql_query($query);
 		    while($row = mysql_fetch_array($result))
 		    {
-		    	echo "<div class='painelpromocao'>Nome:". $row['Nome'] ." - Preço: ".$row['Preco']." - Quantidade: ". $row['Quantidade'] .
-				" - Descrição: " . $row['Descricao'] ."<button onclick=VerPromocao(". $row['idPromocao'].")>Ver Promoção</button></div>";
+		    	echo "<div class='painelpromocao'>Nome:". $row['Nome'] ." - Pontos: ".$row['Pontos']." - Quantidade: ". $row['Quantidade'] .
+				" - Descrição: " . $row['Descricao'] ." - Tokens:".$row['ValorTokens']."<button onclick=VerPromocao(". $row['idPromocao'].")>Ver Promoção</button></div>";
 		    }
 			
 	    }

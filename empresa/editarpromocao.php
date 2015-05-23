@@ -14,14 +14,16 @@
 	$result = mysql_query($query) or die(mysql_error());
 	$row = mysql_fetch_assoc($result);
 	$nome = $row['Nome'];
-	$valor = $row['Preco'];
+	$pontos = $row['Pontos'];
+	$tokens = $row['ValorTokens'];
 	$descricao = $row['Descricao'];
 	
 ?>
 	<form action="validareditarpromo.php" method="post" id="promoform">
     	<input type="hidden" name="id" value='<?php echo $id ?>'/>
     	Nome:<input type="text" name="nome" value='<?php echo $nome ?>'><br>
-        Preço:<input type="text" name="preco" value='<?php echo $valor ?>'><br>
+        Pontos a ser recebidos na compra:<input type="number" name="pontos" value='<?php echo $pontos ?>' min='0'><br>
+		Tokens necessários para a compra:<input type="number" name="tokens" value='<?php echo $tokens ?>' min='0'><br>
         Descrição:<br><textarea rows="4" cols="50" name="descricao" form="promoform" ><?php echo $descricao ?> </textarea><br>
         <input type="submit" value="Editar">
     </form>	

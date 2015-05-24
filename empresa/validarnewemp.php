@@ -1,6 +1,3 @@
-<html>
-<body>
-
 <?php
     include "../connect.php";
 	$nome = $_POST["empname"];
@@ -23,5 +20,3 @@
 	
 	header("Location: index.php");
 ?>
-</body>
-</html>

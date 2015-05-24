@@ -9,9 +9,9 @@
 <link rel=”stylesheet” type=”text/css” href='empresa.css' />
 </head>
 <body>
-    <a href="#"> Verificar compras pontos</a><br>
+    <a href="verificarcompras.php"> Verificar compras pontos</a><br>
     <a href="criarnovapromocao.php">Criar nova promoção</a><br>
-    <a href="#">Comprar pontos</a><br>
+    <a href="comprarpontos.php">Comprar pontos</a><br>
     <a href="editaremp.php">Editar perfil</a><br>
     <a href="logoutemp.php">Logout </a><br>
 <?php

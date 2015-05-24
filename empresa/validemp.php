@@ -2,7 +2,7 @@
 	include "../connect.php";
 	$login = $_POST["userlog"];
 	$pass = $_POST["userpass"];
-	
+	$pass = hash("sha512",$pass);
 	$query = "SELECT * FROM empresa WHERE Login = '" . $login . "'";
 	
 	$result = mysql_query($query);

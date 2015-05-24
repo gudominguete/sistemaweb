@@ -14,7 +14,7 @@
 	$senha = $_POST["newpass"];
 	$cnpj = $_POST["empcnpj"];
 	
-	
+	$senha = hash("sha512",$senha);
 	$query = "INSERT INTO empresa(CNPJ, Login,email, Telefone,Telefone2,Cidade,Endereco,Bairro,Nome, Senha,QuantidadeTicket) VALUES ('". $cnpj ."','". $login . "','" . $email . "','" . $tel1 . "','" . $tel2 . "','" . $cidade . "','" . $end . "','" . $bairro . "','" . $nome . "','" . $senha . "',0)";
 	mysql_query($query) or die(mysql_error());
 	

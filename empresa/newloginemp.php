@@ -7,7 +7,7 @@
 </head>
 
 <body>
-	<p>Nova conta de administrador</p>
+	<p>Nova conta de empresa</p>
         <form action="validarnewemp.php" method="post" name="formulario" onSubmit="ValidarNovaEmpresa()">
         	Nome:<input type="text" name="empname" id="empname"><br>
             CNPJ:<input type="text" name="empcnpj" id="empcnpj"><br>
@@ -39,6 +39,11 @@
 		{
 			var error = document.getElementById("error");
 			error.innerHTML ="";
+			var email = document.getElementById("empmail").value;
+			var newmail= document.getElementById("empnewmail").value;
+			document.write("a");
+			password= document.getElementById("newpass").value;
+			newpassword = document.getElementById("newreppass").value;
 			var strerror="<p>O(s) campo(s) estão vazios:</p>";
 			var flag = 0;
 			if ($.trim($("#empname").val()).length == 0)
@@ -99,12 +104,9 @@
 			if(flag == 0)
 			{
 				
-				var email = document.getElementById("empmail").value;
-				var newmail= document.getElementById("empnewmail").value;
+				
 				if(email === newmail)
 				{
-					password= document.getElementById("newpass").value;
-					newpassword = document.getElementById("newreppass").value;
 					if(password === newpassword)
 					{
 						return true;

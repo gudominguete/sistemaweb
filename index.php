@@ -10,8 +10,13 @@
 	</head>
 	<body>
     	<a href="administrador/index.php">Página do Administrador</a><br>
-        <a href="user.php">Página do usuário</a><br>
         <a href="empresa/index.php">Página do empresario</a><br>
+		<br>
+		<form action="validarlogincliente.php" method="post">
+		Login:<input type="text" name="login">
+		<input type="submit" value="Login com Facebook">
+		</form>
+		
         
 	</body>
 </html>

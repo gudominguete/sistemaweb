@@ -1,6 +1,3 @@
-<?php
-    
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,6 +6,7 @@
 <link rel=”stylesheet” type=”text/css” href='empresa.css' />
 </head>
 <body>
+    <a href="criarregrapontuacao.php">Criar regra de pontuação</a><br>
     <a href="verificarcompras.php"> Verificar compras pontos</a><br>
     <a href="criarnovapromocao.php">Criar nova promoção</a><br>
     <a href="comprarpontos.php">Comprar pontos</a><br>
@@ -72,6 +70,14 @@
 				" - Descrição: " . $row['Descricao'] ." - Tokens:".$row['ValorTokens']."<button onclick=VerPromocao(". $row['idPromocao'].")>Ver Promoção</button></div>";
 		    }
 			
+			echo"<h1> Regras de pontuação</h1><br>";
+			$query = "SELECT * FROM regradepontuacao WHERE Empresa_CNPJ='".$_COOKIE['empcnpj']."';";
+			$result = mysql_query($query);
+			while($row = mysql_fetch_array($result))
+			{
+				echo "<div>A cada : ".$row['Preco']." reais o cliente ganha: ".$row['Pontos']." pontos de experiencia e ".$row['Tokens']." Tokens
+				|<button onclick=EditarRegra(". $row['idRegraDePontuacao'].")>Editar regra</button>|<button onclick=DeletarRegra(". $row['idRegraDePontuacao'].")>Deletar regra</button></div><br>";
+			}
 	    }
 		else
 		{
@@ -86,6 +92,18 @@
 	}    
 	?>
     <script>
+	function EditarRegra(id)
+	{
+		location.href="editarregra.php?id="+id;
+	}
+	function DeletarRegra(id)
+	{
+		if (confirm('Tem certeza que quer deletar essa regra?')) {
+    	    location.href ="deletarregraa.php?id="+id;
+		} else {
+    	// Do nothing!
+		}
+	}
 	function VerPromocao(id)
 	{
 		location.href="verpromocao.php?id="+id;

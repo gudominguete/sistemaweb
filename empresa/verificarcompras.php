@@ -8,7 +8,7 @@
 	
 	while($row = mysql_fetch_array($result))
 	{
-		echo "Quantidade: ".$row['QuantidadePontos']." <br>Valor: ".$row['Valor']."<br>Data: ".$row['Data']."<br>Estado:".$row['Estado'];
+		echo "Quantidade: ".$row['QuantidadePontos']." <br>Valor: ".$row['Valor']."<br>Data: ".$row['Data']."<br>Estado:".$row['Estado']."<br>";
 	}
 ?>
 </body>

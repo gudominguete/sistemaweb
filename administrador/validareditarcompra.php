@@ -9,7 +9,7 @@
 
 		if($estado == 'C')
 		{
-			$query = "UPDATE empresa SET QuantidadeTicket =".$_POST['QuantidadePontos']." WHERE CNPJ='".$_POST['empresacnpj']."';";
+			$query = "UPDATE empresa SET QuantidadeTicket = QuantidadeTicket+".$_POST['QuantidadePontos']." WHERE CNPJ='".$_POST['empresacnpj']."';";
 			mysql_query($query);
 		}
 	

@@ -10,7 +10,7 @@
 	{
 		
 	    $row = mysql_fetch_assoc($result);
-		setcookie('clientenewlogin',$_POST['login']);
+		setcookie("clientenewlogin",$_POST['login']);
 		setcookie("clientelogado",true);
     	setcookie("clientelogin",$row['idFacebookUsuario']);
 	    setcookie("clientecpf",$row['CPF']);

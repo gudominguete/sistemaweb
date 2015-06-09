@@ -5,6 +5,7 @@
 		<title>PromoPoint - Painel Cliente</title>
 	</head>
 	<body>
+	<a href="editarperfilcliente.php">Editar Perfil</a>
 	<?php
 	echo $_COOKIE['clientelogin'];
 	echo $_COOKIE['clientecpf'];
@@ -13,7 +14,13 @@
 	echo $_COOKIE['clientetelefone'];
 	echo $_COOKIE['clientedatanasc'];
 	echo $_COOKIE['clientenivel'];
-	echo $_COOKIE['clienteexperiencia'];	
+	echo $_COOKIE['clienteexperiencia'];
+
+    if(isset($_COOKIE['usermensage']))
+	{
+		echo $_COOKIE['usermensage'];
+		setcookie("usermensage","");
+	}		
 	?>
 	</body>
 </html>

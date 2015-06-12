@@ -10,7 +10,7 @@
     include "../connect.php";
 	$id = $_GET['id'];
 	
-	$query = "SELECT * FROM promocao WHERE idPromocao = ". $id .";";
+	$query = "SELECT * FROM Promocao WHERE idPromocao = ". $id .";";
 	$result = mysql_query($query) or die(mysql_error());
 	$row = mysql_fetch_assoc($result);
 	$nome = $row['Nome'];

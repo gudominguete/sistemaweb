@@ -4,7 +4,7 @@
     $data = date('Y-m-d');
 	
 	$valor = $_POST['quantidade'] *0.01;
-	$query = "INSERT INTO comprapontos (Empresa_CNPJ,QuantidadePontos, Valor,Data,Estado) VALUES('". $_COOKIE['empcnpj']."',".$_POST['quantidade'].",".$valor.",CURDATE(),'A')";
+	$query = "INSERT INTO CompraPontos (Empresa_CNPJ,QuantidadePontos, Valor,Data,Estado) VALUES('". $_COOKIE['empcnpj']."',".$_POST['quantidade'].",".$valor.",CURDATE(),'A')";
 
 	mysql_query($query) or die(mysql_error());
 	

@@ -8,7 +8,7 @@
 	setcookie("clientedatanasc",$_POST['clientedatanasc']);
 	$datanascimento = $_POST['clientedatanasc'];
 	
-	$query = "UPDATE usuario SET CPF='".$_POST['clientecpf']."', Email='".$_POST['clienteemail']."', Nome='".$_POST['clientenome']."', 
+	$query = "UPDATE Usuario SET CPF='".$_POST['clientecpf']."', Email='".$_POST['clienteemail']."', Nome='".$_POST['clientenome']."', 
 	Telefone='".$_POST['clientetelefone']."', DataNascimento=STR_TO_DATE('$datanascimento', '%Y-%m-%d') WHERE idFacebookUsuario='".$_COOKIE['clientenewlogin']."'";
 	
 	mysql_query($query)or die(mysql_error());

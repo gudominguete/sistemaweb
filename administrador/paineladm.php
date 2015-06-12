@@ -11,7 +11,7 @@
 	}
     include "../connect.php";
 	
-    $query = "SELECT * FROM comprapontos WHERE Estado = 'A'";
+    $query = "SELECT * FROM CompraPontos WHERE Estado = 'A'";
 	$result = mysql_query($query);
 	
 	while($row = mysql_fetch_array($result))

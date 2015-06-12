@@ -8,7 +8,7 @@
 <body>
 <?php
     include "../connect.php";
-	$query = "SELECT * FROM promocao WHERE idPromocao=". $_GET['id'] ." AND Empresa_CNPJ=". $_COOKIE['empcnpj'].";";
+	$query = "SELECT * FROM Promocao WHERE idPromocao=". $_GET['id'] ." AND Empresa_CNPJ=". $_COOKIE['empcnpj'].";";
 	$result = mysql_query($query);
 	
 	$row = mysql_fetch_assoc($result);
@@ -18,7 +18,7 @@
 	echo "Descrição: ". $row['Descricao']."<br>";
 	echo "Quantidade: ". $row['Quantidade']."<br>";
 	echo "Compras de usuário:<br>";
-	$query = "SELECT * FROM compra WHERE Promocao_idPromocao =". $_GET['id'].";";
+	$query = "SELECT * FROM Compra WHERE Promocao_idPromocao =". $_GET['id'].";";
 	$result = mysql_query($query);
 	while($row = mysql_fetch_array($result))
 	{

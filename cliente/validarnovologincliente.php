@@ -8,7 +8,7 @@
 	$telefone = $_POST['clientetelefone'];
 	$datanascimento = $_POST['clientedatanasc'];
 	
-	$query = "INSERT INTO usuario(idFacebookUsuario,CPF,Email,Nome,Telefone,DataNascimento,Nivel,Experiencia)
+	$query = "INSERT INTO Usuario(idFacebookUsuario,CPF,Email,Nome,Telefone,DataNascimento,Nivel,Experiencia)
             	VALUES ('".$login."','".$cpf."','".$email."','".$nome."','".$telefone."',STR_TO_DATE('$datanascimento', '%Y-%m-%d'),1,0);";
 	mysql_query($query)or die(mysql_error());
 	

@@ -2,7 +2,7 @@
 <body>
 <?php 
     include "../connect.php";
-    $query = "SELECT * FROM comprapontos WHERE Empresa_CNPJ = '".$_COOKIE['empcnpj']."'";
+    $query = "SELECT * FROM CompraPontos WHERE Empresa_CNPJ = '".$_COOKIE['empcnpj']."'";
 	
 	$result = mysql_query($query);
 	

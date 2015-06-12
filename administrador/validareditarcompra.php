@@ -4,12 +4,12 @@
 		$id = $_POST['idcompraponto'];
 		$estado = $_POST['status'];
 	
-		$query = "UPDATE comprapontos SET Estado = '". $estado ."', Administrador_Login='". $_COOKIE['adminlogin']."' WHERE idCompraPontos=".$id.";";
+		$query = "UPDATE CompraPontos SET Estado = '". $estado ."', Administrador_Login='". $_COOKIE['adminlogin']."' WHERE idCompraPontos=".$id.";";
 		mysql_query($query);
 
 		if($estado == 'C')
 		{
-			$query = "UPDATE empresa SET QuantidadeTicket = QuantidadeTicket+".$_POST['QuantidadePontos']." WHERE CNPJ='".$_POST['empresacnpj']."';";
+			$query = "UPDATE Empresa SET QuantidadeTicket = QuantidadeTicket+".$_POST['QuantidadePontos']." WHERE CNPJ='".$_POST['empresacnpj']."';";
 			mysql_query($query);
 		}
 	

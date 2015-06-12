@@ -27,7 +27,7 @@
 			}
 		    $login =  $_COOKIE['emplogin'];
 		    echo "Login: " . $login . "<br>"; 
-			$query = "SELECT * FROM empresa WHERE Login = '" . $login . "'";
+			$query = "SELECT * FROM Empresa WHERE Login = '" . $login . "'";
 			$result = mysql_query($query);
 			if(!$result)
 	        {
@@ -63,7 +63,7 @@
 			echo "Endereço: ". $row['Endereco'] . "<br>";
 		    setcookie("empbairro",$row['Bairro']);
 			echo "Bairro: ". $row['Bairro'] . "<br>";
-			$query = "SELECT * FROM promocao WHERE Empresa_CNPJ='".$_COOKIE['empcnpj']."'";
+			$query = "SELECT * FROM Promocao WHERE Empresa_CNPJ='".$_COOKIE['empcnpj']."'";
 	    	$result = mysql_query($query);
 		    while($row = mysql_fetch_array($result))
 		    {
@@ -72,7 +72,7 @@
 		    }
 			
 			echo"<h1> Regras de pontuação</h1><br>";
-			$query = "SELECT * FROM regradepontuacao WHERE Empresa_CNPJ='".$_COOKIE['empcnpj']."';";
+			$query = "SELECT * FROM RegraDePontuacao WHERE Empresa_CNPJ='".$_COOKIE['empcnpj']."';";
 			$result = mysql_query($query);
 			while($row = mysql_fetch_array($result))
 			{

@@ -10,7 +10,7 @@
 		$end = $_POST['empend'];
 		$bairro = $_POST['empbairro'];
 		
-		$query = "UPDATE empresa SET Nome='". $nome."', Telefone='".$tel1."',Telefone2='".$tel2 ."', Cidade='".$cidade . "', Endereco='".$end ."', Bairro='". $bairro ."' WHERE CNPJ = '".$cnpj ."';";
+		$query = "UPDATE Empresa SET Nome='". $nome."', Telefone='".$tel1."',Telefone2='".$tel2 ."', Cidade='".$cidade . "', Endereco='".$end ."', Bairro='". $bairro ."' WHERE CNPJ = '".$cnpj ."';";
 		mysql_query($query);
 		
 		setcookie("empmensagem", "Cadastro editado com sucesso!");

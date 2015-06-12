@@ -9,7 +9,7 @@
 		<title>PromoPoint</title>
 	</head>
 	<body>
-    	<a href="administrador/index.php">Página do Administrador</a><br>
+    	<!--<a href="administrador/index.php">Página do Administrador</a><br>-->
         <a href="empresa/index.php">Página do empresario</a><br>
 		<br>
 		<form action="validarlogincliente.php" method="post">

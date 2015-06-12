@@ -1,7 +1,7 @@
 <?php
     include "../connect.php";
 	
-	$query = "SELECT * FROM administrador WHERE Login='". $_POST['adminlog']."'";
+	$query = "SELECT * FROM Administrador WHERE Login='". $_POST['adminlog']."'";
 	
 	$result = mysql_query($query);
 	if(!$result)

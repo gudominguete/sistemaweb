@@ -8,7 +8,7 @@
 <body>
     <?php
         include "../connect.php";
-        $query = "SELECT * FROM regradepontuacao WHERE idRegraDePontuacao=".$_GET['id'].";";
+        $query = "SELECT * FROM RegraDePontuacao WHERE idRegraDePontuacao=".$_GET['id'].";";
         $result = mysql_query($query);
 		$row = mysql_fetch_assoc($result);
 		

@@ -7,7 +7,7 @@
 	
 	$senha = hash("sha512",$senha);
 	
-	$query = "INSERT INTO administrador(Login,senha,Nome,email) VALUES('".$login."','".$senha."','".$nome."','".$email."')";
+	$query = "INSERT INTO Administrador(Login,senha,Nome,email) VALUES('".$login."','".$senha."','".$nome."','".$email."')";
 	mysql_query($query) or die(mysql_error());
 	
 	setcookie("adminmensagem","Administrador criado com sucesso!");

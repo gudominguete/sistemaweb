@@ -15,9 +15,16 @@
 		    {
 		    	echo "<div>";
 		    	echo "Nome: ".$row['Nome'] ." - Endereço: ".$row['Endereco']. " - Bairro: " .$row['Bairro']. "- Telefone: ".$row['Telefone']."<br>";
-		    	echo "<button onclick=E". $row['CNPJ'].")>Ver Empresa</button>";
+		    	echo "<button onclick=VerEmpresa('". $row['Login']."')>Ver Empresa</button>";
 		    	echo "</div><br>";
 		    }	
 		?>
+
+		<script>
+		function VerEmpresa(login)
+		{
+			location.href="../empresa.php?id="+login;
+		}
+		</script>
 	</body>
 </html>

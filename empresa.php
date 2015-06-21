@@ -20,6 +20,19 @@
 			echo "Cidade: ".$row['Cidade']."<br>";
 			echo "Endereço: ". $row['Endereco']."<br>";
 			echo "Bairro: ". $row['Bairro']."<br>";
+			$query = "SELECT * FROM Compraporempresa WHERE Usuario_idFacebookUsuario ='". $_COOKIE['clientelogin'] ."' AND Empresa_CNPJ = '". $row['CNPJ']."';";
+			$result = mysql_query($query);
+			$num_rows = mysql_num_rows($result);
+	        if($num_rows === 0)
+	        {
+	        	echo "Experiencia com essa empresa: 0<br>";
+	        	echo "Tokens com essa empresa: 0<br>";
+	        }
+	        else{
+	        	$row2 = mysql_fetch_assoc($result);
+	        	echo "Experiencia com essa empresa: ".$row2['Experiencia']."<br>";
+	        	echo "Tokens com essa empresa: ".$row2['Token']."<br>";
+	        }
 			$cnpj = $row['CNPJ'];
 			$query = "SELECT * FROM Promocao WHERE Empresa_CNPJ='".$cnpj."';";
 			$result = mysql_query($query);
@@ -33,9 +46,16 @@
 				    echo "Quantidade: ". $row2['Quantidade']."<br>";
 				    echo "Tokens necessários: ". $row2['ValorTokens']."<br>";
 				    echo "Pontos recebidos: ". $row2['Pontos']."<br>";
-				    echo "<button>Comprar</button>";
+				    echo "<button onclick='ComprarPromocao(". $row2['idPromocao'] .",".$cnpj.")'>Comprar</button>";
 				}
 			}
 		?>
+
+		<script>
+		function ComprarPromocao(id,cnpj,tokens)
+		{
+			location.href="cliente/comprarpromocao.php?id="+id +"&cnpj="+cnpj;
+		}
+		</script>
 	</body>
 </html>

@@ -17,6 +17,7 @@
 	$pontos = $row['Pontos'];
 	$tokens = $row['ValorTokens'];
 	$descricao = $row['Descricao'];
+	$datalimite = $row['DataFinal'];
 	
 ?>
 	<form action="validareditarpromo.php" method="post" id="promoform">
@@ -24,6 +25,7 @@
     	Nome:<input type="text" name="nome" value='<?php echo $nome ?>'><br>
         Pontos a ser recebidos na compra:<input type="number" name="pontos" value='<?php echo $pontos ?>' min='0'><br>
 		Tokens necessários para a compra:<input type="number" name="tokens" value='<?php echo $tokens ?>' min='0'><br>
+		Data limite da promoção<input type="text" name="datalimite" value='<?php echo $datalimite?>'><br>
         Descrição:<br><textarea rows="4" cols="50" name="descricao" form="promoform" ><?php echo $descricao ?> </textarea><br>
         <input type="submit" value="Editar">
     </form>	

@@ -10,7 +10,9 @@
     	Nome:<input type="text" name="nome"><br>
         Quantidade de tokens necessários para a compra:<input type="number" name="tokens" min="0"><br>
 		Quantidade de pontos ganhos pela compra:<input type="number" name="pontos" min="0"><br>
+		Data limite da promoção<input type="text" name="datalimite"><br>
         Descrição:<br><textarea rows="4" cols="50" name="descricao" form="promoform"> </textarea><br>
+
         <input type="submit" value="Criar">
     </form>
 </body>

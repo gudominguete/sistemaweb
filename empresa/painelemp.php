@@ -22,7 +22,7 @@
 	    {
 			if(isset($_COOKIE['empmensagem']))
 			{
-				echo $_COOKIE['empmensagem'];
+				echo "<h1>". $_COOKIE['empmensagem']."</h1>";
 				setcookie('empmensagem','');
 			}
 		    $login =  $_COOKIE['emplogin'];
@@ -63,12 +63,17 @@
 			echo "Endereço: ". $row['Endereco'] . "<br>";
 		    setcookie("empbairro",$row['Bairro']);
 			echo "Bairro: ". $row['Bairro'] . "<br>";
+			$query = "SELECT COUNT(*) as total FROM Compra WHERE Promocao_Empresa_CNPJ='".$_COOKIE['empcnpj']."';";
+			$result = mysql_query($query);
+			$row = mysql_fetch_assoc($result);
+			echo "Você tem:". $row['total'] ." compras para aprovar!<br>";
 			$query = "SELECT * FROM Promocao WHERE Empresa_CNPJ='".$_COOKIE['empcnpj']."'";
 	    	$result = mysql_query($query);
 		    while($row = mysql_fetch_array($result))
 		    {
-		    	echo "<div class='painelpromocao'>Nome:". $row['Nome'] ." - Pontos: ".$row['Pontos']." - Quantidade: ". $row['Quantidade'] .
-				" - Descrição: " . $row['Descricao'] ." - Tokens:".$row['ValorTokens']."<button onclick=VerPromocao(". $row['idPromocao'].")>Ver Promoção</button></div>";
+		    	echo "<div class='painelpromocao'>Nome:". $row['Nome'] ;
+		    	echo " - Pontos: ".$row['Pontos']." - Quantidade: ". $row['Quantidade'] ;
+		    	echo " - Data Limite: ".$row['DataFinal'] ." - Descrição: " . $row['Descricao'] ." - Tokens:".$row['ValorTokens']."<button onclick=VerPromocao(". $row['idPromocao'].")>Ver Promoção</button></div>";
 		    }
 			
 			echo"<h1> Regras de pontuação</h1><br>";

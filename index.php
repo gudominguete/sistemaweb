@@ -16,7 +16,29 @@
 		Login:<input type="text" name="login">
 		<input type="submit" value="Login com Facebook">
 		</form>
-		
+
+		<div  class="fb-like" data-share="true" data-width="450" data-show-faces="true">
+       </div>
+
+		<div>
+		</div>
+	<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '928328460534156',
+           xfbml      : true,
+           version    : 'v2.3'
+        });
+      };
+
+    (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "//connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
         
 	</body>
 </html>

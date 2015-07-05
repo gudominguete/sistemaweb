@@ -10,20 +10,37 @@
     include "../connect.php";
 	$query = "SELECT * FROM Promocao WHERE idPromocao=". $_GET['id'] ." AND Empresa_CNPJ=". $_COOKIE['empcnpj'].";";
 	$result = mysql_query($query);
-	
+	if(isset($_COOKIE['empmensagem']))
+	{
+		echo "<h1>". $_COOKIE['empmensagem']."</h1>";
+    	setcookie('empmensagem','');
+	}
 	$row = mysql_fetch_assoc($result);
 	echo "Nome: ". $row['Nome']."<br>";
 	echo "Pontos: ". $row['Pontos']."<br>";
 	echo "Tokens: ". $row['ValorTokens']."<br>";
 	echo "Descrição: ". $row['Descricao']."<br>";
 	echo "Quantidade: ". $row['Quantidade']."<br>";
+	echo "Data limite: ". $row["DataFinal"]."<br>";
 	echo "Compras de usuário:<br>";
-	$query = "SELECT * FROM Compra WHERE Promocao_idPromocao =". $_GET['id'].";";
+	$query = "SELECT * FROM Compra WHERE Promocao_idPromocao =". $_GET['id']." AND Estado<>'C';";
 	$result = mysql_query($query);
 	while($row = mysql_fetch_array($result))
 	{
-		echo $row['Usuario_idFacebookUsuario']."<br>";
-		echo $row['DataCompra']."<br>";		
+		echo "Nome: ". $row['Usuario_idFacebookUsuario']."<br>";
+		echo "Data da compra: ".$row['DataCompra']."<br>";
+        echo "Estado: ".$row['Estado']."<br>";
+        echo "<form action='validareditarpromocao.php' method='post'>";
+        echo "<select name='estado'>";
+        echo "<option value='C'>Concluido</option>";
+        echo "<option value='A'>Aguardar</option>";
+        echo "<option value='X'>Cancelar</option>";
+        echo "</select><br>";
+        echo "<input type='hidden' name='id' value=".$row['idCompra'].">";
+        echo "<input type='hidden' name='usuario' value=".$row['Usuario_idFacebookUsuario'].">";
+        echo "<input type='hidden' name='idpromocao' value=".$_GET['id'].">";
+        echo "<input type='submit' value='Editar compra'><br>";
+        echo "</form>";
 	}
 	echo "<button onclick=EditarPromocao(". $_GET['id'].");>Editar</button><br>";
 	echo "<button onclick=ConfirmaCancelar(". $_GET['id'].");>Deletar</button><br>";

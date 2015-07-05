@@ -46,6 +46,7 @@
 				    echo "Quantidade: ". $row2['Quantidade']."<br>";
 				    echo "Tokens necessários: ". $row2['ValorTokens']."<br>";
 				    echo "Pontos recebidos: ". $row2['Pontos']."<br>";
+				    echo "Data Limite: ". $row2['DataFinal']."<br>";
 				    echo "<button onclick='ComprarPromocao(". $row2['idPromocao'] .",".$cnpj.")'>Comprar</button>";
 				}
 			}

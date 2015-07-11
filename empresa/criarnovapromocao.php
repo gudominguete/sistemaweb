@@ -8,6 +8,7 @@
 <body>
 	<form action="validarcriarpromocao.php" method="post" id="promoform">
     	Nome:<input type="text" name="nome"><br>
+    	Quantidade: <input type="number" name="quantidade" min="0"><br>
         Quantidade de tokens necessários para a compra:<input type="number" name="tokens" min="0"><br>
 		Quantidade de pontos ganhos pela compra:<input type="number" name="pontos" min="0"><br>
 		Data limite da promoção<input type="text" name="datalimite"><br>

@@ -1,7 +1,7 @@
 <?php 
 	include "connect.php";
 	
-	$query = "SELECT * FROM Usuario WHERE idFacebookUsuario ='". $_POST['login']."';";
+	$query = "SELECT * FROM Usuario WHERE idFacebookUsuario='". $_GET['id']."';";
 	
 	$result = mysql_query($query);
 	

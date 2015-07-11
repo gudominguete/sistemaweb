@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Rabbat - Listagem de cidades</title>
 	</head>
-	<body>
+	<body onload="checkLoginState(1)">
 		<?php
 			include "../connect.php";
 			$query = "SELECT * FROM Empresa WHERE Cidade LIKE'%". $_POST['procuraremrpesa']."%';";
@@ -23,8 +23,10 @@
 		<script>
 		function VerEmpresa(login)
 		{
-			location.href="../empresa.php?id="+login;
+			location.href="empresa.php?id="+login;
 		}
 		</script>
+		
+    <script src="../script/index.js"></script>
 	</body>
 </html>

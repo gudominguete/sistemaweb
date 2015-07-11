@@ -11,7 +11,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>PromoPoint - <?php echo $row['Nome'];?></title>
 	</head>
-	<body>
+	<body onload="checkLoginState(1)">
 		<?php 
 			echo $row['Nome']."<br>";
 			echo "E-mail: ".$row['email']."<br>";
@@ -58,5 +58,7 @@
 			location.href="cliente/comprarpromocao.php?id="+id +"&cnpj="+cnpj;
 		}
 		</script>
+		
+    <script src="../script/index.js"></script>
 	</body>
 </html>

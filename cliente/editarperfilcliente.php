@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>PromoPoint - Editar Cadastro</title>
 	</head>
-	<body>
+	<body onload="checkLoginState(1)">
 	<?php 
 	    echo $_COOKIE['clientenewlogin'];
 	?>
@@ -18,5 +18,7 @@
 	<input type="hidden" name="clientelogin" value='<?php echo $_COOKIE['clientenewlogin'];?>'>
 	<input type="submit" value="Enviar">
 	</form>
+
+    <script src="../script/index.js"></script>
 	</body>
 </html>

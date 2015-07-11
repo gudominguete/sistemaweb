@@ -4,7 +4,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>PromoPoint - Painel Cliente</title>
 	</head>
-	<body>
+	<body onload="checkLoginState(1)">
 		<form action="listaempresas.php" method="post" id="pesquisa">
 			Procurar: <input type="Text" name="procuraremrpesa">
 			<input type='submit' value="Procurar">
@@ -26,5 +26,8 @@
 			setcookie("usermensage","");
 		}		
 		?>
+		<button onclick="clienteLogout()">Logout</button>
+        <button onclick="testAPI()">Teste</button>
+		<script src="../script/index.js"></script>
 	</body>
 </html>

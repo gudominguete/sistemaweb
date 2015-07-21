@@ -5,10 +5,10 @@
 	$preco = $_POST['precocliente'];
 	$precototal = $preco;
 	$pontos = 0;
-	
+	$tokens = 0;
 	// Verificar se possui pontuação
 
-	$query = "SELECT QuantidadeTicket FROM empresa WHERE CNPJ='".$cnpj."';";
+	$query = "SELECT QuantidadeTicket FROM Empresa WHERE CNPJ='".$cnpj."';";
 	$result = mysql_query($query);
 	$row = mysql_fetch_assoc($result);
 	$qtdadepontos = $row['QuantidadeTicket'];
@@ -17,8 +17,10 @@
 	$result = mysql_query($query);
 	while($row = mysql_fetch_array($result))
 	{
-	    $pontos = $pontos + ($preco/$row['Preco']);
+		$mult = (int)($preco/$row['Preco']);
+	    $pontos = $pontos + ($mult*$row['Pontos']);
 		$preco = $preco % $row['Preco'];
+		$tokens = $tokens + ($mult*$row['Tokens']);
 	}
 	if($qtdadepontos>=$pontos)
 	{

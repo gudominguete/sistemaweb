@@ -1,7 +1,7 @@
 <?php
     include "../connect.php";
 	$cnpj = $_COOKIE['empcnpj'];
-	$logincliente = $_POST['clientelogin'];
+	$email = $_POST['clienteemail'];
 	$preco = $_POST['precocliente'];
 	$precototal = $preco;
 	$pontos = 0;
@@ -28,11 +28,14 @@
 		$query = "UPDATE Empresa SET QuantidadeTicket = QuantidadeTicket-".$pontos." WHERE CNPJ='".$cnpj."';";
 		mysql_query($query) or die(mysql_error());
 		// Incrementar a pontuação no saldo do cliente
-		$query = "UPDATE Usuario SET Experiencia = Experiencia+".$pontos." WHERE idFacebookUsuario='".$logincliente."';";
+		$query = "UPDATE Usuario SET Experiencia = Experiencia+".$pontos." WHERE Email='".$email."';";
 		mysql_query($query) or die(mysql_error());
+		$query = "SELECT * FROM Usuario WHERE Email='".$email."';";
+		$result = mysql_query($query);
+		$row = mysql_fetch_assoc($result);
 		// Quardar informações da compra
 		$query = "INSERT INTO CompraProduto(Preco,Usuario_idFacebookUsuario,Empresa_CNPJ,Data) 
-		VALUES (".$precototal.",'".$logincliente."','".$cnpj."',CURDATE())";
+		VALUES (".$precototal.",'".$row['idFacebookUsuario']."','".$cnpj."',CURDATE())";
 		mysql_query($query) or die(mysql_error());
 		// TODO verificar se passou de nivel
 		setcookie("empmensagem","Pontos atribuidos com sucesso!");

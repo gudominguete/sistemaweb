@@ -15,7 +15,7 @@
 	?>
 		Atribuir pontos ao cliente
 		<form action="validaratribuirpontos.php" method="post">
-			Nick do cliente:<input type="text" name="clientelogin"><br>
+			E-mail do cliente:<input type="email" name="clienteemail"><br>
 			Preço da compra:<input type="number" name="precocliente" min="0" step="0.1"><br>
 			<input type="submit" value="Confirmar">
 		</form>

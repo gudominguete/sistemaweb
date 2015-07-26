@@ -27,12 +27,34 @@
 		// Decrementar a pontuação no saldo da empresa
 		$query = "UPDATE Empresa SET QuantidadeTicket = QuantidadeTicket-".$pontos." WHERE CNPJ='".$cnpj."';";
 		mysql_query($query) or die(mysql_error());
+
 		// Incrementar a pontuação no saldo do cliente
 		$query = "UPDATE Usuario SET Experiencia = Experiencia+".$pontos." WHERE Email='".$email."';";
 		mysql_query($query) or die(mysql_error());
 		$query = "SELECT * FROM Usuario WHERE Email='".$email."';";
 		$result = mysql_query($query);
 		$row = mysql_fetch_assoc($result);
+
+		// TODO VERIFICAR SE EXISTE UMA LINHA NA TABELA Compraporempresa
+
+		$query = "SELECT COUNT(*) as total FROM Compraporempresa WHERE Empresa_CNPJ='".$cnpj."' AND Usuario_idFacebookUsuario='".$row['idFacebookUsuario']."'";
+		$result = mysql_query($query);
+		$row2 = mysql_fetch_assoc($result);
+
+        // Se tiver, atualizar a linha com o valor da compra
+        if($row2['total'] > 0)
+        {
+        	$query = "UPDATE Compraporempresa Set Experiencia=Experiencia+".$pontos.", Token=Token+".$tokens." 
+        	WHERE Empresa_CNPJ='".$cnpj."' AND Usuario_idFacebookUsuario='".$row['idFacebookUsuario']."'";
+		    mysql_query($query) or die(mysql_error());
+        }
+        // Se não tiver, inserir uma linha nova
+        else
+        {
+            $query = "INSERT INTO Compraporempresa(Usuario_idFacebookUsuario,Empresa_CNPJ,Experiencia,Token) 
+            VALUES ('".$row['idFacebookUsuario']."', '". $cnpj."',".$pontos.",".$tokens.");";
+            mysql_query($query) or die(mysql_error());
+        }
 		// Quardar informações da compra
 		$query = "INSERT INTO CompraProduto(Preco,Usuario_idFacebookUsuario,Empresa_CNPJ,Data) 
 		VALUES (".$precototal.",'".$row['idFacebookUsuario']."','".$cnpj."',CURDATE())";

@@ -23,11 +23,11 @@
 	echo "Quantidade: ". $row['Quantidade']."<br>";
 	echo "Data limite: ". $row["DataFinal"]."<br>";
 	echo "Compras de usuário:<br>";
-	$query = "SELECT * FROM Compra WHERE Promocao_idPromocao =". $_GET['id']." AND Estado<>'C';";
+	$query = "SELECT * FROM Compra INNER JOIN Usuario ON Compra.Usuario_idFacebookUsuario = Usuario.idFacebookUsuario WHERE Compra.Promocao_idPromocao =". $_GET['id']." AND Compra.Estado<>'C';";
 	$result = mysql_query($query);
 	while($row = mysql_fetch_array($result))
 	{
-		echo "Nome: ". $row['Usuario_idFacebookUsuario']."<br>";
+		echo "Nome: ". $row['Nome']."<br>";
 		echo "Data da compra: ".$row['DataCompra']."<br>";
         echo "Estado: ".$row['Estado']."<br>";
         echo "<form action='validareditarpromocao.php' method='post'>";

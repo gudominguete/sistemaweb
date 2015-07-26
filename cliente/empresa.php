@@ -1,5 +1,5 @@
 <?php
-    include "connect.php";
+    include "../connect.php";
     $query = "SELECT * FROM Empresa WHERE Login ='". $_GET['id']."';";
     $result = mysql_query($query);
     $row = mysql_fetch_assoc($result);
@@ -55,7 +55,7 @@
 		<script>
 		function ComprarPromocao(id,cnpj,tokens)
 		{
-			location.href="cliente/comprarpromocao.php?id="+id +"&cnpj="+cnpj;
+			location.href="comprarpromocao.php?id="+id +"&cnpj="+cnpj;
 		}
 		</script>
 		

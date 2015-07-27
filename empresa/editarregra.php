@@ -8,7 +8,7 @@
 <body>
     <?php
         include "../connect.php";
-        $query = "SELECT * FROM RegraDePontuacao WHERE idRegraDePontuacao=".$_GET['id'].";";
+        $query = "SELECT * FROM RegraDePontuacao WHERE idRegraDePontuacao=".$_GET['id']." AND Empresa_CNPJ = '". $_COOKIE['empcnpj'] ."';"; 
         $result = mysql_query($query);
 		$row = mysql_fetch_assoc($result);
 		

@@ -7,7 +7,7 @@
 	<body onload="checkLoginState(1)">
 		<?php
 			include "../connect.php";
-			$query = "SELECT * FROM Empresa WHERE Cidade LIKE'%". $_POST['procuraremrpesa']."%' OR Nome LIKE'%". $_POST['procuraremrpesa']."%';";
+			$query = "SELECT * FROM Empresa WHERE (Cidade LIKE'%". $_POST['procuraremrpesa']."%' OR Nome LIKE'%". $_POST['procuraremrpesa']."%') AND Confirmado = 'S';";
 
 			$result = mysql_query($query);
 

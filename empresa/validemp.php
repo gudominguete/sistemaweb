@@ -19,7 +19,7 @@
 	}
 	$row = mysql_fetch_assoc($result);
 	//criar algorimto de criptografia
-	if($row['Senha'] == $pass)
+	if($row['Senha'] == $pass && $row['Confirmado']=='S')
 	{
 		echo "Login efetuado com sucesso!";
 		setcookie("emplogado", true, time()+3600*24);

@@ -41,7 +41,6 @@
 			error.innerHTML ="";
 			var email = document.getElementById("empmail").value;
 			var newmail= document.getElementById("empnewmail").value;
-			document.write("a");
 			password= document.getElementById("newpass").value;
 			newpassword = document.getElementById("newreppass").value;
 			var strerror="<p>O(s) campo(s) estão vazios:</p>";

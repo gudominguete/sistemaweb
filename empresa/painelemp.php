@@ -8,6 +8,7 @@
 <body>
     <a href="criarregrapontuacao.php">Criar regra de pontuação</a><br>
     <a href="verificarcompras.php"> Verificar compras pontos</a><br>
+    <a href="verificarvendas.php">Verificar vendas de produtos</a><br>
 	<a href="atribuirpontos.php">Atribuir pontos</a><br>
     <a href="criarnovapromocao.php">Criar nova promoção</a><br>
     <a href="comprarpontos.php">Comprar pontos</a><br>

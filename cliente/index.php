@@ -10,6 +10,7 @@
 			<input type='submit' value="Procurar">
 		</form>
 		<a href="editarperfilcliente.php">Editar Perfil</a><br>
+		<a href="../index.php">Logout</a><br>
 		<?php
 			echo "Login: ". $_COOKIE['clientelogin']."<br>";
 			echo "CPF:" . $_COOKIE['clientecpf']."<br>";

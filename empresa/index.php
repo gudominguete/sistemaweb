@@ -7,14 +7,11 @@
 		  #  header("Location: painelemp.php");
 	    }
 	}
-	if(isset($_COOKIE['emploginerror']))
+	if(isset($_COOKIE['empmensage']))
 	{
-		$emploginerro = $_COOKIE['emploginerror'];
-		if($emploginerro == true)
-		{
-		    echo "Usuário ou senha estão errados!";
-			setcookie('emploginerror',false);
-		}
+		echo $_COOKIE['empmensage']; 
+		setcookie('empmensage','');
+		
 	}
 	if(isset($_COOKIE['empcriarlogin']))
 	{

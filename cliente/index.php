@@ -27,8 +27,6 @@
 			setcookie("usermensage","");
 		}		
 		?>
-		<button onclick="clienteLogout()">Logout</button>
-        <button onclick="testAPI()">Teste</button>
 		<script src="../script/index.js"></script>
 	</body>
 </html>

@@ -14,22 +14,29 @@
 	$num_rows = mysql_num_rows($result);
 	if($num_rows === 0)
 	{
-		setcookie('emploginerror',true);
+		setcookie('empmensage',"Login ou senha errados!");
 		header("Location: index.php");
 	}
 	$row = mysql_fetch_assoc($result);
-	//criar algorimto de criptografia
-	if($row['Senha'] == $pass && $row['Confirmado']=='S')
+	if($row['Confirmado']=='S')
 	{
-		echo "Login efetuado com sucesso!";
-		setcookie("emplogado", true, time()+3600*24);
-		setcookie("emplogin",$row['Login']);
-		setcookie("empcnpj", $row['CNPJ']);
-		header("Location: painelemp.php");
-	}
-	else
-	{
-		setcookie('emploginerror',true);
+		if($row['Senha'] == $pass)
+		{
+			echo "Login efetuado com sucesso!";
+			setcookie("emplogado", true, time()+3600*24);
+			setcookie("emplogin",$row['Login']);
+			setcookie("empcnpj", $row['CNPJ']);
+			header("Location: painelemp.php");
+		}
+		else
+		{
+			setcookie('empmensage',"Login ou senha errados!");
+			header("Location: index.php");
+		}
+    }
+    else
+    {
+    	setcookie('empmensage',"E-mail ainda não foi confirmado!");
 		header("Location: index.php");
-	}
+    }
 ?>

@@ -15,6 +15,13 @@
 	
 	$query = "SELECT * FROM RegraDePontuacao WHERE Empresa_CNPJ='".$cnpj."' ORDER BY preco DESC;";
 	$result = mysql_query($query);
+	$num = mysql_num_rows($result);
+	if($num==0)
+	{
+		setcookie("empmensagem","Não possui regras de pontuação!");
+		header("Location: atribuirpontos.php");
+
+	}
 	while($row = mysql_fetch_array($result))
 	{
 		$mult = (int)($preco/$row['Preco']);

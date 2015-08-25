@@ -15,6 +15,11 @@
 		echo "<h1>". $_COOKIE['empmensagem']."</h1>";
     	setcookie('empmensagem','');
 	}
+	$num = mysql_num_rows($result);
+	if($num == 0)
+	{
+		header("Location: ../permissaonegada.php");
+	}
 	$row = mysql_fetch_assoc($result);
 	echo "Nome: ". $row['Nome']."<br>";
 	echo "Pontos: ". $row['Pontos']."<br>";

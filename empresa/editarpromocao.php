@@ -13,6 +13,11 @@
 	$query = "SELECT * FROM Promocao WHERE idPromocao = ". $id ." AND Empresa_CNPJ = '". $_COOKIE['empcnpj'] ."';"; 
 	$result = mysql_query($query) or die(mysql_error());
 	$row = mysql_fetch_assoc($result);
+	$num = mysql_num_rows($result);
+	if($num == 0)
+	{
+		header("Location: ../permissaonegada.php");
+	}
 	$nome = $row['Nome'];
 	$pontos = $row['Pontos'];
 	$tokens = $row['ValorTokens'];

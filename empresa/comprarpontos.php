@@ -16,7 +16,7 @@
 	function CalcularPreco()
 	{
 		var quantidade = parseInt(document.getElementById("quantidadepontos").value);
-		var valor = quantidade * 0.01;
+		var valor = quantidade * 0.1;
 		var arredondado = parseFloat(valor.toFixed(2));
 		document.getElementById("valorpontos").value = arredondado;
 	}
